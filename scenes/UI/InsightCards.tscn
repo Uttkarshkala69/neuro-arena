@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=3 uid="uid://insight_cards_scene"]
+
+[ext_resource type="Script" path="res://scripts/UI/InsightCards.gd" id="1"]
+
+[node name="InsightCards" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+text = "Run Analysis"
+
+[node name="Summary" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+autowrap_mode = 3
+text = "The Director studied the run and adapted accordingly."
+
+[node name="SummaryGrid" type="GridContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+columns = 2
+
+[node name="SkillRow" type="HBoxContainer" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+
+[node name="SkillLabel" type="Label" parent="Panel/Margin/VBox/SummaryGrid/SkillRow"]
+layout_mode = 2
+text = "Final Skill"
+
+[node name="SkillBar" type="ProgressBar" parent="Panel/Margin/VBox/SummaryGrid/SkillRow"]
+custom_minimum_size = Vector2(260, 20)
+layout_mode = 2
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="StressRow" type="HBoxContainer" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+
+[node name="StressLabel" type="Label" parent="Panel/Margin/VBox/SummaryGrid/StressRow"]
+layout_mode = 2
+text = "Final Stress"
+
+[node name="StressBar" type="ProgressBar" parent="Panel/Margin/VBox/SummaryGrid/StressRow"]
+custom_minimum_size = Vector2(260, 20)
+layout_mode = 2
+max_value = 100.0
+value = 0.0
+show_percentage = false
+
+[node name="ConfidenceRow" type="HBoxContainer" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+
+[node name="ConfidenceLabel" type="Label" parent="Panel/Margin/VBox/SummaryGrid/ConfidenceRow"]
+layout_mode = 2
+text = "Final Confidence"
+
+[node name="ConfidenceBar" type="ProgressBar" parent="Panel/Margin/VBox/SummaryGrid/ConfidenceRow"]
+custom_minimum_size = Vector2(260, 20)
+layout_mode = 2
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="DifficultyRow" type="HBoxContainer" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+
+[node name="DifficultyLabel" type="Label" parent="Panel/Margin/VBox/SummaryGrid/DifficultyRow"]
+layout_mode = 2
+text = "Highest Difficulty"
+
+[node name="DifficultyValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid/DifficultyRow"]
+layout_mode = 2
+text = "1.00x"
+
+[node name="AccuracyRow" type="HBoxContainer" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+
+[node name="AccuracyLabel" type="Label" parent="Panel/Margin/VBox/SummaryGrid/AccuracyRow"]
+layout_mode = 2
+text = "Accuracy"
+
+[node name="AccuracyValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid/AccuracyRow"]
+layout_mode = 2
+text = "0%"
+
+[node name="KillsRow" type="HBoxContainer" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+
+[node name="KillsLabel" type="Label" parent="Panel/Margin/VBox/SummaryGrid/KillsRow"]
+layout_mode = 2
+text = "Kills"
+
+[node name="KillsValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid/KillsRow"]
+layout_mode = 2
+text = "0"
+
+[node name="MoodRow" type="HBoxContainer" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+
+[node name="MoodLabel" type="Label" parent="Panel/Margin/VBox/SummaryGrid/MoodRow"]
+layout_mode = 2
+text = "Mood Distribution"
+
+[node name="MoodValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid/MoodRow"]
+layout_mode = 2
+text = "-"
+
+[node name="SessionLabel" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+text = "Session:"
+
+[node name="Cards" type="VBoxContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8

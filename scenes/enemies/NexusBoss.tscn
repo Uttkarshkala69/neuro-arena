@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://nexus_boss_scene"]
+
+[ext_resource type="Script" path="res://scripts/enemies/BossAI.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 20.0
+
+;; ─────────────────────────────────────────────────────────────────────────────
+;; NexusBoss – Final AI Director embodiment
+;; Visual hierarchy:
+;;   NexusBoss  (CharacterBody2D)
+;;   ├── CollisionShape2D
+;;   ├── BossVisuals            (Node2D)  – all drawn children, never move boss root
+;;   │   ├── AuraLayer          (Node2D)  – phase aura, rings, pulse (drawn in BossAI._draw)
+;;   │   ├── CoreGlow           (Node2D)  – bright centre core (drawn in BossAI._draw)
+;;   │   └── RingContainer      (Node2D)  – two rotating ring nodes (drawn in BossAI._draw)
+;;   ├── AttackWarningLayer     (Node2D)  – telegraph circles spawn here
+;;   ├── PhaseBanner            (CanvasLayer-equivalent: Control/Panel)
+;;   │   ├── BannerBackground   (ColorRect)
+;;   │   └── BannerLabel        (Label)
+;;   └── HUDPhaseAnchor         (Marker2D) – world-space anchor the HUD reads for phase
+;; ─────────────────────────────────────────────────────────────────────────────
+
+[node name="NexusBoss" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 1
+motion_mode = 1
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")
+
+;; ── Visual root ──────────────────────────────────────────────────────────────
+[node name="BossVisuals" type="Node2D" parent="."]
+z_index = 0
+
+[node name="AuraLayer" type="Node2D" parent="BossVisuals"]
+z_index = -1
+
+[node name="CoreGlow" type="Node2D" parent="BossVisuals"]
+z_index = 1
+
+[node name="RingContainer" type="Node2D" parent="BossVisuals"]
+z_index = 0
+
+;; ── Attack telegraphing layer ─────────────────────────────────────────────────
+[node name="AttackWarningLayer" type="Node2D" parent="."]
+z_index = 2
+
+;; ── Phase Banner (world-space, anchored above boss) ───────────────────────────
+;; Positioned via code; starts hidden; shown on phase transition for 1.8 s
+[node name="PhaseBanner" type="Control" parent="."]
+offset_left = -80.0
+offset_top = -96.0
+offset_right = 80.0
+offset_bottom = -60.0
+visible = false
+z_index = 10
+
+[node name="BannerBackground" type="ColorRect" parent="PhaseBanner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.04, 0.06, 0.88)
+
+[node name="BannerLabel" type="Label" parent="PhaseBanner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "REACTION AUDITOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 11
+
+;; ── Legacy PhaseLabel kept for any external HUD that still reads it ───────────
+[node name="PhaseLabel" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -112.0
+offset_right = 60.0
+offset_bottom = -88.0
+text = "REACTION AUDITOR"
+horizontal_alignment = 1
+visible = false
+
+;; ── HUD anchor – external health bar / phase widget reads this node ───────────
+[node name="HUDPhaseAnchor" type="Marker2D" parent="."]
+position = Vector2(0, -68)

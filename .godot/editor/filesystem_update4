@@ -1,0 +1,4 @@
+res://scripts/Arena.gd
+res://scripts/DebugOverlay.gd
+res://scripts/Director.gd
+res://scripts/enemies/BaseEnemy.gd

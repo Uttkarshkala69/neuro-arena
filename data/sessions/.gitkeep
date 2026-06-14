@@ -1,0 +1,2 @@
+# Session JSON files are written at runtime to user://sessions/
+# See SessionRecorder.gd for format details.

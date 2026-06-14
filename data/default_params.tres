@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="GameParams" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/GameParams.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+player_speed = 280.0
+player_dash_speed = 720.0
+player_dash_duration = 0.18
+player_dash_cooldown = 0.9
+player_max_health = 100.0
+player_shoot_cooldown = 0.12
+projectile_speed = 900.0
+projectile_damage = 25.0
+projectile_lifetime = 1.5
+base_difficulty = 1.0
+min_difficulty = 0.5
+max_difficulty = 3.0
+skill_weight = 0.6
+stress_weight = 0.4
+confidence_weight = 0.3
+max_waves = 8
+base_enemies_per_wave = 3
+enemies_per_wave_scaling = 1.2
+max_enemies_per_wave = 24
+spawn_stagger = 0.35
+wave_cooldown = 3.0
+drone_speed = 120.0
+drone_health = 40.0
+drone_damage = 10.0
+stalker_speed = 160.0
+stalker_health = 60.0
+phantom_speed = 140.0
+phantom_health = 50.0
+boss_speed = 90.0
+boss_health = 500.0
+boss_damage = 20.0
