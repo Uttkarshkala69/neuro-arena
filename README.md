@@ -1,4 +1,4 @@
-```markdown
+
 # 🧠 Neuro Arena
 
 > **Neuromorphic AI-Driven Dynamic Difficulty in Real Time**
@@ -159,11 +159,7 @@ neuro-arena/
 
 This project was developed for NEURONEX'26 Hackathon.
 
----
 
-<div align="center">
 
 **🧠 Built with neuromorphic intelligence. Plays with adaptive pressure. 🎮**
 
-</div>
-```
